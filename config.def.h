@@ -5,8 +5,8 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hermit:pixelsize=10.5:antialias=true:autohint=true",  "JoyPixels pixelsize=10:antialias=false:autohint=false"};
-static const char dmenufont[]       = "Hermit:pixelsize=11:antialias=true:autohint=true";
+static const char *fonts[]          = { "monospace:size=10" };
+static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -27,30 +27,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   isfakefullscreen monitor */
-    { "Spotify",  NULL,      NULL,       1 << 7,       0,          0,                -1 },
-    { "spotify",  NULL,      NULL,       1 << 7,       0,          0,                -1 },
-	{ "Sylpheed", NULL,      NULL,       1 << 8,       0,          0,                -1 },
-	{ "Signal", NULL,      NULL,       1 << 8,       0,          1,                -1 },
-	{ NULL,      NULL,          "nnn",       NULL,         1,          0,                -1 },
-	{ "MrViewer",      NULL,          NULL,       NULL,         1,          0,                -1 },
-	//{ NULL,      NULL,         "fzf",       NULL,         1,          0,                -1 },
-	{ "Mplay",      NULL,          NULL,       NULL,         1,          0,                -1 },
-	{ NULL,      NULL,      "Houdini Indie Limited-Commercial - Rig Tree",       NULL,         1,          0,                -1 },
-	{ NULL,      NULL,      "Octane IPR",       NULL,         1,          0,                -1 },
-	//{  NULL,      NULL,      "Podcast",  1 << 1,       0,          0,                -1 },
-	{  NULL,      NULL,		"Google Kalender",1 << 5,       0,          0,                -1 },
-	{  NULL,      NULL,      "Note"     ,1 << 4,       0,          0,                -1 },
-	{  NULL,      NULL,      "Interrupt",NULL,         1,          0,                -1 },
-    {  "Yad",     NULL,      NULL,       NULL,         1,          0,                -1 },
-    {  "Safeeyes",     NULL,      NULL,       NULL,         1,          0,                -1 },
-	{ "Chromium", NULL,      NULL,       NULL,         0,          1,                -1 },
-	{ "Google-chrome", NULL,      NULL,       NULL,         0,          1,                -1 },
-    { "firefox", NULL,      NULL,       NULL,         0,          1,                -1 },
-    { "Firefox-esr", NULL,      NULL,       NULL,         0,          1,                -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           0,               -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           1,               -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.75; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -97,8 +79,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("exec $path launch ")},
 	//{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY,             XK_space,  zoom, {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
