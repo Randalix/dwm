@@ -26,7 +26,7 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   isfakefullscreen monitor */
+	/* class      instance    title       tags mask     isfloating   isfakefullscreen monitor float x,y,w,h floatborderpx*/
     //{ "Spotify",       NULL, NULL,                                            1 << 7, 0,    0, -1 },
     //{ "spotify",       NULL, NULL,                                            1 << 7, 0,    0, -1 },
 	//{ "Sylpheed",      NULL, NULL,                                            1 << 8, 0,    0, -1 },
@@ -37,7 +37,7 @@ static const Rule rules[] = {
     //{  "Yad",          NULL, NULL,                                              NULL, 1,    0, -1 },
     //{  "Safeeyes",     NULL, NULL,                                              NULL, 1,    0, -1 },
 
-    {  NULL,           NULL, "floating",                                            1, 1, 0, -1 },
+    {  NULL,           NULL, "floating",                                         1, 1, 0, -1,50,50,500,500,  5},
 
     {  NULL,           NULL, "Interrupt",                                        0, 1, 0, -1 },
     { "Mplay",         NULL, NULL,                                               0, 1, 0, -1 },
