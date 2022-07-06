@@ -37,6 +37,8 @@ static const Rule rules[] = {
     //{  "Yad",          NULL, NULL,                                              NULL, 1,    0, -1 },
     //{  "Safeeyes",     NULL, NULL,                                              NULL, 1,    0, -1 },
 
+    {  NULL,           NULL, "floating",                                            1, 1, 0, -1 },
+
     {  NULL,           NULL, "Interrupt",                                        0, 1, 0, -1 },
     { "Mplay",         NULL, NULL,                                               0, 1, 0, -1 },
     { "MrViewer",      NULL, NULL,                                               0, 1, 0, -1 },
