@@ -297,16 +297,6 @@ applyrules(Client *c)
 	/* rule matching */
 	c->isfloating = 0;
 	c->tags = 0;
-	if (r->floatborderpx >= 0) {
-		c->floatborderpx = r->floatborderpx;
-		c->hasfloatbw = 1;
-	}
-	if (r->isfloating) {
-		if (r->floatx >= 0) c->x = c->mon->mx + r->floatx;
-		if (r->floaty >= 0) c->y = c->mon->my + r->floaty;
-		if (r->floatw >= 0) c->w = r->floatw;
-		if (r->floath >= 0) c->h = r->floath;
-	}
 	XGetClassHint(dpy, c->win, &ch);
 	class    = ch.res_class ? ch.res_class : broken;
 	instance = ch.res_name  ? ch.res_name  : broken;
@@ -320,6 +310,17 @@ applyrules(Client *c)
 			c->isfloating = r->isfloating;
 			c->isfakefullscreen = r->isfakefullscreen;
 			c->tags |= r->tags;
+            if (r->isfloating) {
+                if (r->floatx >= 0) c->x = c->mon->mx + r->floatx;
+                if (r->floaty >= 0) c->y = c->mon->my + r->floaty;
+                if (r->floatw >= 0) c->w = r->floatw;
+                if (r->floath >= 0) c->h = r->floath;
+
+            if (r->floatborderpx >= 0) {
+                c->floatborderpx = r->floatborderpx;
+                c->hasfloatbw = 1;
+	}
+	}
 			for (m = mons; m && m->num != r->monitor; m = m->next);
 			if (m)
 				c->mon = m;
