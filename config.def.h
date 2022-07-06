@@ -27,8 +27,26 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   isfakefullscreen monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           0,               -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           1,               -1 },
+    { "Spotify",       NULL, NULL,                                          1 << 7, 0, 0, -1 },
+    { "spotify",       NULL, NULL,                                          1 << 7, 0, 0, -1 },
+	{ "Sylpheed",      NULL, NULL,                                          1 << 8, 0, 0, -1 },
+	{ "Signal",        NULL, NULL,                                          1 << 8, 0, 1, -1 },
+	{ NULL,            NULL, "nnn",                                           0, 1, 0, -1 },
+	{ "MrViewer",      NULL, NULL,                                            0, 1, 0, -1 },
+	//{ NULL,      NULL,         "fzf",       NULL,         1,          0,                -1 },
+	{ "Mplay",         NULL, NULL,                                            0, 1, 0, -1 },
+	{ NULL,            NULL, "Houdini Indie Limited-Commercial - Rig Tree",   0, 1, 0, -1 },
+	{ NULL,            NULL, "Octane IPR",                                    0, 1, 0, -1 },
+	//{  NULL,      NULL,      "Podcast",  1 << 1,       0,          0,                -1 },
+	{  NULL,           NULL, "Google Kalender",                             1 << 5, 0, 0, -1 },
+	{  NULL,           NULL, "Note",                                        1 << 4, 0, 0, -1 },
+	{  NULL,           NULL, "Interrupt",                                     0, 1, 0, -1 },
+    {  "Yad",          NULL, NULL,                                            0, 1, 0, -1 },
+    {  "Safeeyes",     NULL, NULL,                                            0, 1, 0, -1 },
+	{ "Chromium",      NULL, NULL,                                            0, 0, 1, -1 },
+	{ "Google-chrome", NULL, NULL,                                            0, 0, 1, -1 },
+    { "firefox",       NULL, NULL,                                            0, 0, 1, -1 },
+    { "Firefox-esr",   NULL, NULL,                                            0, 0, 1, -1 },
 };
 
 /* layout(s) */
