@@ -1104,7 +1104,11 @@ manage(Window w, XWindowAttributes *wa)
 	c->oldbw = wa->border_width;
 
 	updatetitle(c);
-	if (XGetTransientForHint(dpy, w, &trans) && (t = wintoclient(trans))) {
+    const char *class;
+    XClassHint ch = { NULL, NULL };
+    XGetClassHint(dpy, c->win, &ch);
+    class = ch.res_class ? ch.res_class : broken;
+    if (!strstr(class, "Houdini") && XGetTransientForHint(dpy, w, &trans) && (t = wintoclient(trans))) {
 		c->mon = t->mon;
 		c->tags = t->tags;
 	} else {
