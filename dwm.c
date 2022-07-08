@@ -92,7 +92,7 @@ struct Client {
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
 	int bw, oldbw;
 	unsigned int tags;
-	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isfakefullscreen, floatborderpx, hasfloatbw;
+	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isfakefullscreen,  hasfloatbw, floatborderpx;
 	Client *next;
 	Client *snext;
 	Monitor *mon;
@@ -144,8 +144,8 @@ typedef struct {
 	unsigned int tags;
 	int isfloating;
 	int isfakefullscreen;
-    int floatx, floaty, floatw, floath;
     int floatborderpx;
+    int floatx, floaty, floatw, floath;
 	int monitor;
 } Rule;
 

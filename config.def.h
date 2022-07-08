@@ -37,14 +37,15 @@ static const Rule rules[] = {
     //{  "Yad",          NULL, NULL,                                              NULL, 1,    0, -1 },
     //{  "Safeeyes",     NULL, NULL,                                              NULL, 1,    0, -1 },
 
-    {  NULL,           NULL, "floating",                                         1, 1, 1, -1, 0,438,2558,1000,  5},
+    {  NULL,           NULL, "floating",                                         0, 1, 1, -1,   0, 438, 2558, 1000, 0},
 
     {  NULL,           NULL, "Interrupt",                                        0, 1, 0, -1 },
-    { "Mplay",         NULL, NULL,                                               0, 1, 0, -1 },
+    {  "Mplay",           NULL, NULL,                                         0, 1, 1, -1,   0, 438, 2558, 1000, 0},
     { "MrViewer",      NULL, NULL,                                               0, 1, 0, -1 },
-    { NULL,            NULL, "Octane IPR",                                       0, 1, 0, -1 },
-    { NULL,            NULL, "Houdini Indie Limited-Commercial - Rig Tree",      0, 1, 0, -1 },
-    { "MrViewer",      NULL, NULL,                                               0, 1, 1, -1 },
+    //{ "Houdini",       NULL, NULL,                                          1 << 2, 1, 0, -1 },
+    //{ NULL,            NULL, "Octane IPR",                                       0, 1, 0, -1 },
+    //{ NULL,            NULL, "Houdini",      0, 1, 0, -1 },
+    //{ "MrViewer",      NULL, NULL,                                               0, 1, 1, -1 },
 
     { "Chromium",      NULL, NULL,                                          1 << 7, 0, 1, -1 },
     { "Google-chrome", NULL, NULL,                                          1 << 7, 0, 1, -1 },
@@ -52,8 +53,8 @@ static const Rule rules[] = {
     { "Firefox",       NULL, NULL,                                          1 << 7, 0, 1, -1 },
     { "Firefox-esr",   NULL, NULL,                                          1 << 7, 0, 1, -1 },
 
-    { "Signal",        NULL, NULL,                                          1 << 8, 0, 1, -1 },
-    { NULL,            NULL, "nnn",                                              0, 1, 0, -1 },
+    //{ "Signal",        NULL, NULL,                                          1 << 8, 0, 1, -1 },
+    //{ NULL,            NULL, "nnn",                                              0, 1, 0, -1 },
 };
 
 /* layout(s) */
