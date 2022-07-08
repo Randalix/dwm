@@ -539,7 +539,6 @@ clientmessage(XEvent *e)
 {
 	XClientMessageEvent *cme = &e->xclient;
 	Client *c = wintoclient(cme->window);
-	unsigned int i;
 
 	if (!c)
 		return;
@@ -550,13 +549,8 @@ clientmessage(XEvent *e)
   			      || (cme->data.l[0] == 2 /* _NET_WM_STATE_TOGGLE */
                                      && (!c->isfullscreen || c->isfakefullscreen))));
 	} else if (cme->message_type == netatom[NetActiveWindow]) {
-		for (i = 0; i < LENGTH(tags) && !((1 << i) & c->tags); i++);
-		if (i < LENGTH(tags)) {
-			const Arg a = {.ui = 1 << i};
-			view(&a);
-			focus(c);
-			restack(selmon);
-		}
+		if (c != selmon->sel && !c->isurgent)
+			seturgent(c, 1);
 	}
 }
 
