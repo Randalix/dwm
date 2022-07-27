@@ -37,21 +37,22 @@ static const Rule rules[] = {
     //{  "Yad",          NULL, NULL,                                              NULL, 1,    0, -1 },
     //{  "Safeeyes",     NULL, NULL,                                              NULL, 1,    0, -1 },
 
-    {  NULL,           NULL, "floating",                                         0, 1, 1, -1,   0, 438, 2558, 1000, 0},
+    {  NULL,           NULL, "floating",                                         0, 1, 1, -1,   0, 438, 2558, 1000},
 
     {  NULL,           NULL, "Interrupt",                                        0, 1, 0, -1 },
-    {  "Mplay",           NULL, NULL,                                         0, 1, 1, -1,   0, 438, 2558, 1000, 0},
+    {  "Mplay",           NULL, NULL,                                         0, 1, 1, -1,   0, 438, 2558, 1000},
     { "MrViewer",      NULL, NULL,                                               0, 1, 0, -1 },
     //{ "Houdini",       NULL, NULL,                                          1 << 2, 1, 0, -1 },
     //{ NULL,            NULL, "Octane IPR",                                       0, 1, 0, -1 },
     //{ NULL,            NULL, "Houdini",      0, 1, 0, -1 },
     //{ "MrViewer",      NULL, NULL,                                               0, 1, 1, -1 },
 
-    { "Chromium",      NULL, NULL,                                          1 << 7, 0, 1, -1 },
-    { "Google-chrome", NULL, NULL,                                          1 << 7, 0, 1, -1 },
-    { "firefox",       NULL, NULL,                                          1 << 7, 0, 1, -1 },
-    { "Firefox",       NULL, NULL,                                          1 << 7, 0, 1, -1 },
-    { "Firefox-esr",   NULL, NULL,                                          1 << 7, 0, 1, -1 },
+    {      "Chromium", NULL, NULL, 1 << 7, 0, 1, -1 },
+    { "Google-chrome", NULL, NULL, 1 << 7, 0, 1, -1 },
+    {       "firefox", NULL, NULL, 1 << 7, 0, 1, -1 },
+    {       "Firefox", NULL, NULL, 1 << 7, 0, 1, -1 },
+    {   "Firefox-esr", NULL, NULL, 1 << 7, 0, 1, -1 },
+    {       "discord", NULL, NULL, 1 << 8, 0, 1, -1 },
 
     //{ "Signal",        NULL, NULL,                                          1 << 8, 0, 1, -1 },
     //{ NULL,            NULL, "nnn",                                              0, 1, 0, -1 },
@@ -90,49 +91,47 @@ static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ControlMask,                 XK_BackSpace, quit,                                     {0}},
-	{ MODKEY,                                     XK_p, spawn,                      {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,                      XK_Return, spawn,                       {.v = termcmd } },
-	{ MODKEY,                                     XK_b, togglebar,                               {0} },
-	{ MODKEY,                                     XK_j, focusstack,                       {.i = +1 } },
-	{ MODKEY,                                     XK_k, focusstack,                       {.i = -1 } },
-	{ MODKEY,                                     XK_i, incnmaster,                       {.i = +1 } },
-	{ MODKEY|ShiftMask,                           XK_i, incnmaster,                       {.i = -1 } },
-	{ MODKEY,                                     XK_h, setmfact,                       {.f = -0.05} },
-	{ MODKEY,                                     XK_l, setmfact,                       {.f = +0.05} },
-	{ MODKEY,                                   XK_Tab, view,                                    {0} },
-	{ MODKEY,                                     XK_q, killclient,                              {0} },
-	{ MODKEY,                                     XK_t, setlayout,                {.v = &layouts[0]} },
-	{ MODKEY,                                     XK_f, setlayout,                {.v = &layouts[1]} },
-	{ MODKEY,                                     XK_m, setlayout,                {.v = &layouts[2]} },
-	{ MODKEY,                                     XK_x, spawn,            SHCMD("exec $path launch ")},
-	{ MODKEY,                                 XK_space, zoom,                                    {0} },
-	{ MODKEY|ShiftMask,                       XK_space, togglefloating,                          {0} },
-	{ MODKEY,                                     XK_0, view,                            {.ui = ~0 } },
-	{ MODKEY|ShiftMask,                           XK_0, tag,                             {.ui = ~0 } },
-	{ MODKEY,                                 XK_comma, focusmon,                         {.i = -1 } },
-	{ MODKEY,                                XK_period, focusmon,                         {.i = +1 } },
-	{ MODKEY|ShiftMask,                       XK_comma, tagmon,                           {.i = -1 } },
-	{ MODKEY|ShiftMask,                      XK_period, tagmon,                           {.i = +1 } },
-	{ MODKEY|ShiftMask,                           XK_q, quit,                                    {0} },
- 	{ MODKEY|ShiftMask,                                     XK_d, shifttag,                       { .i = +1 } },
-     { MODKEY,                           XK_d, shiftviewclients,                { .i = +1 } }, // shift view
-     //{ MODKEY,                               XK_a, shiftview,         { .i = -1 } },
- 	{ MODKEY,                     XK_a, shiftviewclients,  { .i = -1 } },
- 	{ MODKEY|ShiftMask,                                     XK_a, shifttag,                       { .i = +1 } },
-     //{ MODKEY|ShiftMask,                     XK_h, shiftboth,         { .i = 1 }	},
-     //{ MODKEY|ControlMask,                   XK_h, shiftswaptags,     { .i = -1 }	},
-     //{ MODKEY|ControlMask,                   XK_l, shiftswaptags,     { .i = +1 }	},
-     //{ MODKEY|ShiftMask,                     XK_l, shiftboth,         { .i = +1 }	},
-	TAGKEYS(                        XK_1,     0)
-	TAGKEYS(                        XK_2,     1)
-	TAGKEYS(                        XK_3,     2)
-	TAGKEYS(                        XK_4,     3)
-	TAGKEYS(                        XK_5,     4)
-	TAGKEYS(                        XK_6,     5)
-	TAGKEYS(                        XK_7,     6)
-	TAGKEYS(                        XK_8,     7)
-	TAGKEYS(                        XK_9,     8)
+	{ MODKEY|ControlMask, XK_BackSpace, quit,                                     {0}},
+	{ MODKEY,                     XK_p, spawn,                      {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,      XK_Return, spawn,                       {.v = termcmd } },
+	{ MODKEY,                     XK_b, togglebar,                               {0} },
+	{ MODKEY,                     XK_j, focusstack,                       {.i = +1 } },
+	{ MODKEY,                     XK_k, focusstack,                       {.i = -1 } },
+	{ MODKEY,                     XK_i, incnmaster,                       {.i = +1 } },
+	{ MODKEY|ShiftMask,           XK_i, incnmaster,                       {.i = -1 } },
+	{ MODKEY,                     XK_h, setmfact,                       {.f = -0.05} },
+	{ MODKEY,                     XK_l, setmfact,                       {.f = +0.05} },
+	{ MODKEY,                   XK_Tab, view,                                    {0} },
+	{ MODKEY,                     XK_q, killclient,                              {0} },
+	{ MODKEY,                     XK_t, setlayout,                {.v = &layouts[0]} },
+	{ MODKEY,                     XK_f, setlayout,                {.v = &layouts[1]} },
+	{ MODKEY,                     XK_m, setlayout,                {.v = &layouts[2]} },
+	{ MODKEY,                     XK_x, spawn,            SHCMD("exec $path launch ")},
+	{ MODKEY,                 XK_space, zoom,                                    {0} },
+	{ MODKEY|ShiftMask,       XK_space, togglefloating,                          {0} },
+	{ MODKEY,                     XK_0, view,                            {.ui = ~0 } },
+	{ MODKEY|ShiftMask,           XK_0, tag,                             {.ui = ~0 } },
+	{ MODKEY,                 XK_comma, focusmon,                         {.i = -1 } },
+	{ MODKEY,                XK_period, focusmon,                         {.i = +1 } },
+	{ MODKEY|ShiftMask,       XK_comma, tagmon,                           {.i = -1 } },
+	{ MODKEY|ShiftMask,      XK_period, tagmon,                           {.i = +1 } },
+	{ MODKEY|ShiftMask,           XK_q, quit,                                    {0} },
+ 	{ MODKEY,                     XK_w, shifttag,                        { .i = +1 } },
+ 	{ MODKEY|ShiftMask,                     XK_w, shifttag,                        { .i = -1 } },
+     { MODKEY,                    XK_d, shiftviewclients,                { .i = +1 } }, // shift view
+     { MODKEY|ShiftMask,          XK_d, shiftview,                       { .i = +1 } }, // shift view
+     { MODKEY,                    XK_a, shiftviewclients,                { .i = -1 } }, // shift view
+     { MODKEY|ShiftMask,          XK_a, shiftview,                       { .i = -1 } }, // shift view
+
+	TAGKEYS(                        XK_1,           0)
+	TAGKEYS(                        XK_2,           1)
+	TAGKEYS(                        XK_3,           2)
+	TAGKEYS(                        XK_4,           3)
+	TAGKEYS(                        XK_5,           4)
+	TAGKEYS(                        XK_6,           5)
+	TAGKEYS(                        XK_7,           6)
+	TAGKEYS(                        XK_8,           7)
+	TAGKEYS(                        XK_9,           8)
 };
 
 /* button definitions */
