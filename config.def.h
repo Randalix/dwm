@@ -50,7 +50,8 @@ static const Rule rules[] = {
     {      "Chromium", NULL, NULL, 1 << 7, 0, 1, -1 },
     { "Google-chrome", NULL, NULL, 1 << 7, 0, 1, -1 },
     {       "firefox", NULL, NULL, 1 << 7, 0, 1, -1 },
-    {       "Firefox", NULL, NULL, 1 << 7, 0, 1, -1 },
+    {   "Firefox", NULL, NULL, 1 << 7, 0, 1, -1 },
+    {   "Pavucontrol", NULL, NULL, 1 << 8, 0, 1, -1 },
     {   "Firefox-esr", NULL, NULL, 1 << 7, 0, 1, -1 },
     {       "discord", NULL, NULL, 1 << 8, 0, 1, -1 },
 
