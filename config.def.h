@@ -117,6 +117,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,       XK_comma, tagmon,                           {.i = -1 } },
 	{ MODKEY|ShiftMask,      XK_period, tagmon,                           {.i = +1 } },
 	{ MODKEY|ShiftMask,           XK_q, quit,                                    {0} },
+	{ MODKEY|ControlMask,           XK_q,      spawn,           SHCMD("kill -SEGV ""\"$(xprop | grep PID| awk '{print $3}')""\"")},
  	{ MODKEY,                     XK_w, shifttag,                        { .i = +1 } },
  	{ MODKEY|ShiftMask,                     XK_w, shifttag,                        { .i = -1 } },
      { MODKEY,                    XK_d, shiftviewclients,                { .i = +1 } }, // shift view
